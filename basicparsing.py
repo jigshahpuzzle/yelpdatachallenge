@@ -1,4 +1,4 @@
-# This file contains scripts to parse data from the Yelp JSON and conduct basic calculations. 
+# This file contains scripts to parse data from the Yelp JSON and conduct basic maniuplations. 
 
 
 import json
@@ -38,7 +38,7 @@ def readData(dataset):
 # INPUT: 
 # Data as a list of dictionaries 
 # OUTPUT: 
-# Dictionary where key = category, value = business data 
+# Dictionary where key = category, value = list of business data 
 def catSubset(data):
 	subset = {}	
 	subset["No Category Listed"] = []
@@ -48,10 +48,31 @@ def catSubset(data):
 			if topcat in subset: 
 				subset[topcat].append(business)	
 			else: 
-				subset[topcat] = []
+				subset[topcat] = [business]
 		else: 
 			subset["No Category Listed"].append(business) 
 	return subset
+
+
+# DESCRIPTION: 
+# Subsets "business" data by city 
+# INPUT: 
+# Data as a list of dictionaries 
+# OUTPUT: 
+# Dictionary where key = city, value = list of business data
+def citySubset(data): 
+	subset = {} 
+	subset["No City Listed"] = [] 
+	for business in data: 
+		city = business["city"]
+		if city: 
+			if city in subset: 
+				subset["city"].append(business)
+			else:
+				subset["city"] = [business]
+		else: 
+			subset["No City Listed"].append(business)
+	return subset		
 
 
 # DESCRIPTION: 
