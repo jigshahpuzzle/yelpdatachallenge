@@ -1,2 +1,6 @@
+import basicparsing as bp
+
 if __name__ == "__main__":
-  print "Hello" 
+	obj = bp.readData("business")
+	print obj
+	print "Hello" 
