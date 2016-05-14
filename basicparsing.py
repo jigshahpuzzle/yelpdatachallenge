@@ -67,9 +67,9 @@ def citySubset(data):
 		city = business["city"]
 		if city: 
 			if city in subset: 
-				subset["city"].append(business)
+				subset[city].append(business)
 			else:
-				subset["city"] = [business]
+				subset[city] = [business]
 		else: 
 			subset["No City Listed"].append(business)
 	return subset		
