@@ -36,7 +36,7 @@ def readData(dataset):
 # DESCRIPTION: 
 # Subsets "business" data by top category of business 
 # INPUT: 
-# Data as a list of dictionaries 
+# Business data as a list of dictionaries 
 # OUTPUT: 
 # Dictionary where key = category, value = list of business data 
 def catSubset(data):
@@ -57,7 +57,7 @@ def catSubset(data):
 # DESCRIPTION: 
 # Subsets "business" data by city 
 # INPUT: 
-# Data as a list of dictionaries 
+# Business data as a list of dictionaries 
 # OUTPUT: 
 # Dictionary where key = city, value = list of business data
 def citySubset(data): 
@@ -76,9 +76,26 @@ def citySubset(data):
 
 
 # DESCRIPTION: 
+# Subsets "tips" by business 
+# INPUT: 
+# Tips data as a list of dictionaries 
+# OUTPUT: 
+# Dictionary where key = businesss ids, value = list of tips
+def tipSubsetBiz(data): 
+	subset = {} 
+	for tip in data: 
+		biz = tip["business_id"]
+		if biz in subset: 
+			subset[biz].append(tip)
+		else: 
+			subset[biz] = [tip]
+
+	return subset
+
+# DESCRIPTION: 
 # Extracts "business" id and ratings from business data 
 # INPUT: 
-# Data as a list of dictionaries 
+# Business data as a list of dictionaries 
 # OUTPUT: 
 # Dictionary where key = business ids, value = average rating 
 def bizRatings(data):
