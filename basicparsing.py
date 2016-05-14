@@ -51,4 +51,20 @@ def catSubset(data):
 				subset[topcat] = []
 		else: 
 			subset["No Category Listed"].append(business) 
-	return subset 
+	return subset
+
+
+# DESCRIPTION: 
+# Extracts "business" id and ratings from business data 
+# INPUT: 
+# Data as a list of dictionaries 
+# OUTPUT: 
+# Dictionary where key = business ids, value = average rating 
+def bizRatings(data):
+	ratings = {} 
+	for business in data: 
+		stars = business["stars"] 
+		if stars:
+			ratings[business["business_id"]] = stars
+
+	return ratings 
