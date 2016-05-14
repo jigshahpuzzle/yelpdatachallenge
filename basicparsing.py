@@ -2,7 +2,7 @@
 
 
 import ast 
-
+import json
 
 # "business" for business data
 # "checkin" for checkin data
@@ -24,6 +24,6 @@ def readData(dataset):
 
 	data = [] 
 	for line in datafile: 
-		data.append(line)
+		data.append(json.loads(line))
    
 	return data
