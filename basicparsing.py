@@ -76,11 +76,11 @@ def citySubset(data):
 
 
 # DESCRIPTION: 
-# Subsets "tips" by business 
+# Subsets "tip" OR "review" by business 
 # INPUT: 
-# Tips data as a list of dictionaries 
+# Tip OR Review data as a list of dictionaries 
 # OUTPUT: 
-# Dictionary where key = businesss ids, value = list of tips
+# Dictionary where key = businesss ids, value = list of tip OR review
 def tipSubsetBiz(data): 
 	subset = {} 
 	for tip in data: 
