@@ -147,11 +147,11 @@ def bizStats(data):
 	reviewCountList = []
 	hours = []
 	hoursDict = bizHours(data) 
-	for b_id, hours in bizHours.iteritems(): 
-		hours.append(hours)
+	for b_id, hour in hoursDict.iteritems(): 
+		hours.append(hour)
 	for business in data: 
 		rating = business["stars"]
-		rc = business["reviewCount"]
+		rc = business["review_count"]
 		
 		if rating:
 				ratingList.append(rating) 
