@@ -142,9 +142,13 @@ def bizHours(data):
 # OUTPUT: 
 # Dictionary where key = stat name, value = stat value
 def bizStats(data): 
+	statsDict = {}
 	ratingList = [] 	
 	reviewCountList = []
 	hours = []
+	hoursDict = bizHours(data) 
+	for b_id, hours in bizHours.iteritems(): 
+		hours.append(hours)
 	for business in data: 
 		rating = business["stars"]
 		rc = business["reviewCount"]
@@ -153,4 +157,5 @@ def bizStats(data):
 				ratingList.append(rating) 
 		if rc:
 			reviewCountList.append(rc)
-		
+	
+	return statsDict
