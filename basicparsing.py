@@ -105,4 +105,39 @@ def bizRatings(data):
 		if stars:
 			ratings[business["business_id"]] = stars
 
-	return ratings 
+	return ratings
+
+
+# DESCRIPTION:
+# Computes hours open per business
+# INPUT: 
+# Business data as a list of dictionaries 
+# OUTPUT:
+# Dictionary where key = business id, value = hours open weekly
+def bizHours(data): 
+	for business in data: 
+		opendata = business["hour"]	
+		if opendata: 
+			for  			
+	
+
+
+# DESCRIPTION: 
+# Computes basic statistics on the business data
+# INPUT: 
+# Business data as a list of dictionaries 
+# OUTPUT: 
+# Dictionary where key = stat name, value = stat value
+def bizStats(data): 
+	ratingList = [] 	
+	reviewCountList = []
+	hours = []
+	for business in data: 
+		rating = business["stars"]
+		rc = business["reviewCount"]
+		
+	if rating:
+			ratingList.append(rating) 
+		if rc:
+			reviewCountList.append(rc)
+		
