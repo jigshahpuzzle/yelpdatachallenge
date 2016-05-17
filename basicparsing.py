@@ -158,4 +158,7 @@ def bizStats(data):
 		if rc:
 			reviewCountList.append(rc)
 	
+	print ratingList
+	print hours
+	print reviewCountList	
 	return statsDict
