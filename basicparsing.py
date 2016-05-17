@@ -115,13 +115,26 @@ def bizRatings(data):
 # OUTPUT:
 # Dictionary where key = business id, value = hours open weekly
 def bizHours(data): 
+	hours = 0
+	bizDict = {}
 	for business in data: 
-		opendata = business["hour"]	
+		hours = 0
+		b_id = business["business_id"]
+		opendata = business["hours"]	
 		if opendata: 
-			for  			
-	
+			for day in opendata:
+				opent = int(opendata[day]["open"][0:2])
+				closet = int(opendata[day]["close"][0:2])
+				if closet < 12:
+					closet += 24
+				hours += closet - opent
+		if hours == 0:
+			bizDict[b_id] = "N/A"
+		else: 
+			bizDict[b_id] = hours			
+	return bizDict	
 
-
+# *** TO BE COMPLETED ***
 # DESCRIPTION: 
 # Computes basic statistics on the business data
 # INPUT: 
@@ -136,8 +149,8 @@ def bizStats(data):
 		rating = business["stars"]
 		rc = business["reviewCount"]
 		
-	if rating:
-			ratingList.append(rating) 
+		if rating:
+				ratingList.append(rating) 
 		if rc:
 			reviewCountList.append(rc)
 		
