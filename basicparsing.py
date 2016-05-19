@@ -147,6 +147,9 @@ def bizStats(data):
 	reviewCountList = []
 	hours = []
 	hoursDict = bizHours(data) 
+	attributes = [] 
+	## List of attributes 
+	##
 	for b_id, hour in hoursDict.iteritems(): 
 		hours.append(hour)
 	for business in data: 
