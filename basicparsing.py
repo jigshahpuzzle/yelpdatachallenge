@@ -147,15 +147,29 @@ def bizStats(data):
 	reviewCountList = []
 	hours = []
 	hoursDict = bizHours(data) 
-	attributes = [] 
-	## List of attributes 
-	##
+	attributes = {} 
+
 	for b_id, hour in hoursDict.iteritems(): 
 		hours.append(hour)
+
 	for business in data: 
 		rating = business["stars"]
 		rc = business["review_count"]
-		
+		atts = business["attributes"]	
+		for att in atts: 
+			if att in attributes: 
+				if atts[att] == True:
+					attributes[att]["True"] += 1
+				else: 
+					attributes[att]["False"] += 1 
+			else: 
+				attributes[att] = {}
+				attributes[att]["True"] = 0 
+				attributes[att]["False"] = 0
+				if atts[att] == True: 
+					attributes[att]["True"] += 1
+				else:		
+					attributes[att]["False"] += 1
 		if rating:
 				ratingList.append(rating) 
 		if rc:
@@ -164,4 +178,5 @@ def bizStats(data):
 	print ratingList
 	print hours
 	print reviewCountList	
+	print attributes
 	return statsDict
