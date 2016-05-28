@@ -156,7 +156,6 @@ def bizStats(data):
 		rating = business["stars"]
 		rc = business["review_count"]
 		atts = business["attributes"]
-		ambs = business["Ambience"]	
 		for att in atts: 
 			if att in attributes: 
 				if atts[att] == True:
@@ -167,20 +166,6 @@ def bizStats(data):
 				attributes[att] = {}
 				attributes[att]["True"] = 0 
 				attributes[att]["False"] = 0
-				if atts[att] == True: 
-					attributes[att]["True"] += 1
-				else:		
-					attributes[att]["False"] += 1
-		for amb in abms: 
-			if amb in ambiences:
-				if ambiences[amb] == True: 
-					ambiences[amb]["True"] += 1
-				else: 
-					ambiences[amb]["False"] += 1
-			else: 
-				ambiences[amb] = {}
-				ambiences[amb]["True"] = 0
-				ambiences[amb]["False"] = 0
 				if atts[att] == True: 
 					attributes[att]["True"] += 1
 				else:		
@@ -198,3 +183,17 @@ def bizStats(data):
 	print attributes
 	print ambiences
 	return statsDict
+
+# DESCRIPTION
+# Computes total check-ins for a business 
+# INPUT: 
+# Check-In Data as a list of dictionaries 
+# OUTPUT: 
+# Total # of checkins
+def processCheckins(data):
+	total = 0
+	for key1 in data: 
+		for key2 in data[key1]: 
+			total += data[key1][key2]
+
+	return total
