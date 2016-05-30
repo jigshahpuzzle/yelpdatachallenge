@@ -195,5 +195,4 @@ def processCheckins(data):
 	for key1 in data: 
 		for key2 in data[key1]: 
 			total += data[key1][key2]
-
 	return total
