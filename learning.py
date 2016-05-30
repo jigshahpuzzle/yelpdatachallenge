@@ -7,12 +7,14 @@ def nonlin(x,deriv=False):
 	    return x*(1-x)
 
 	return 1/(1+np.exp(-x))
-    
+
+## Input Datatset Matrix where each row is a training example
 X = np.array([[0,0,1],
             [0,1,1],
             [1,0,1],
             [1,1,1]])
-                
+
+## Output dataset matrix where each row is a training example                
 y = np.array([[0],
 			[1],
 			[1],
@@ -21,8 +23,8 @@ y = np.array([[0],
 np.random.seed(1)
 
 # randomly initialize our weights with mean 0
-syn0 = 2*np.random.random((3,4)) - 1
-syn1 = 2*np.random.random((4,1)) - 1
+syn0 = 2*np.random.random((3,4)) - 1 ## Layer one weights
+syn1 = 2*np.random.random((4,1)) - 1 ## Layer two weights
 
 for j in xrange(60000):
 
